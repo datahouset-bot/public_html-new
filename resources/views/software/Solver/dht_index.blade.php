@@ -462,16 +462,16 @@
                             <small class="text-muted">computer shop Billing Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/computer_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/computer_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/computer_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/computer_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -487,16 +487,16 @@
                             <small class="text-muted">CCTV Billing Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                           <a href="{{ url('/cctv_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/cctv_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/cctv_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/cctv_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -512,16 +512,16 @@
                             <small class="text-muted">Aquaguard Billing Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/aquaguard_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/aquaguard_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/aquaguard_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/aquaguard_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -538,16 +538,16 @@
                             <small class="text-muted">S.C Billing and Service Shop Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/Sc_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/Sc_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/Sc_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/Sc_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -563,16 +563,16 @@
                             <small class="text-muted">Patanjali shop Billing Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/patanjali_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/patanjali_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/patanjali_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/patanjali_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -588,16 +588,16 @@
                             <small class="text-muted">BAG shop Billing Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                             <a href="{{ url('/bag_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/bag_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/bag_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/bag_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -613,16 +613,16 @@
                             <small class="text-muted">DAIRY shop Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/dairy_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/dairy_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/dairy_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/dairy_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -638,16 +638,16 @@
                             <small class="text-muted">Wine shop Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/wine_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/wine_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/wine_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/wine_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -663,16 +663,16 @@
                             <small class="text-muted">Sweet Shop Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/sweet_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/sweet_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/sweet_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/sweet_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -688,16 +688,16 @@
                             <small class="text-muted">Surgical shop Billing Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/surgical_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/surgical_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/surgical_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/surgical_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -713,16 +713,16 @@
                             <small class="text-muted">Salon shop Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/salon_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/salon_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/salon_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/salon_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -738,16 +738,16 @@
                             <small class="text-muted">Sharee shop Billing Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/saree_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/saree_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/saree_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/saree_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -763,16 +763,16 @@
                             <small class="text-muted">sainatry goods Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/sainatry_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/sainatry_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/sainatry_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/sainatry_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -788,16 +788,16 @@
                             <small class="text-muted">Printing press Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                            <a href="{{ url('/print_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/print_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/print_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/print_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -813,16 +813,16 @@
                             <small class="text-muted">Pet shop Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                        <a href="{{ url('/pet_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/pet_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/pet_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/pet_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>
@@ -838,16 +838,16 @@
                             <small class="text-muted">Paint shop Billing Software</small>
                         </h5>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="/browser-screen/footwear" class="btn btn-primary software-btn">
+                        <a href="{{ url('/paint_browser') }}" class="btn btn-primary software-btn">
                                 <i class="fas fa-desktop"></i> Browser & Screen
                             </a>
-                            <a href="/features/footwear" class="btn btn-success software-btn">
+                            <a href="{{ url('/paint_features') }}" class="btn btn-success software-btn">
                                 <i class="fas fa-list-check"></i> Features List
                             </a>
-                            <a href="/demo-video/footwear" class="btn btn-info software-btn">
+                            <a href="{{ url('/paint_youtube') }}" class="btn btn-info software-btn">
                                 <i class="fas fa-video"></i> Demo Video
                             </a>
-                            <a href="/download-demo/footwear" class="btn btn-warning software-btn">
+                            <a href="{{ url('/paint_download') }}" class="btn btn-warning software-btn">
                                 <i class="fas fa-download"></i> Download Demo
                             </a>
                         </div>

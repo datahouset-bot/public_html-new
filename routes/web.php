@@ -278,85 +278,85 @@ Route::view('/kirana_youtube', 'software.Solver.youtube_page.kirana_youtube');
 Route::view('/kirana_features', 'software.Solver.features_list.kirana_features');
 Route::view('/kirana_download', 'software.Solver.software_download.kirana_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/computer_browser', 'software.Solver.browser_screen.computer_browser');
+Route::view('/computer_youtube', 'software.Solver.youtube_page.computer_youtube');
+Route::view('/computer_features', 'software.Solver.features_list.computer_features');
+Route::view('/computer_download', 'software.Solver.software_download.computer_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/cctv_browser', 'software.Solver.browser_screen.cctv_browser');
+Route::view('/cctv_youtube', 'software.Solver.youtube_page.cctv_youtube');
+Route::view('/cctv_features', 'software.Solver.features_list.cctv_features');
+Route::view('/cctv_download', 'software.Solver.software_download.cctv_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/aquaguard_browser', 'software.Solver.browser_screen.aquaguard_browser');
+Route::view('/aquaguard_youtube', 'software.Solver.youtube_page.aquaguard_youtube');
+Route::view('/aquaguard_features', 'software.Solver.features_list.aquaguard_features');
+Route::view('/aquaguard_download', 'software.Solver.software_download.aquaguard_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/Sc_browser', 'software.Solver.browser_screen.sc_browser');
+Route::view('/Sc_youtube', 'software.Solver.youtube_page.Sc_youtube');
+Route::view('/Sc_features', 'software.Solver.features_list.Sc_features');
+Route::view('/Sc_download', 'software.Solver.software_download.Sc_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/patanjali_browser', 'software.Solver.browser_screen.patanjali_browser');
+Route::view('/patanjali_youtube', 'software.Solver.youtube_page.patanjali_youtube');
+Route::view('/patanjali_features', 'software.Solver.features_list.patanjali_features');
+Route::view('/patanjali_download', 'software.Solver.software_download.patanjali_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/bag_browser', 'software.Solver.browser_screen.bag_browser');
+Route::view('/bag_youtube', 'software.Solver.youtube_page.bag_youtube');
+Route::view('/bag_features', 'software.Solver.features_list.bag_features');
+Route::view('/bag_download', 'software.Solver.software_download.bag_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/dairy_browser', 'software.Solver.browser_screen.dairy_browser');
+Route::view('/dairy_youtube', 'software.Solver.youtube_page.dairy_youtube');
+Route::view('/dairy_features', 'software.Solver.features_list.dairy_features');
+Route::view('/dairy_download', 'software.Solver.software_download.dairy_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/wine_browser', 'software.Solver.browser_screen.wine_browser');
+Route::view('/wine_youtube', 'software.Solver.youtube_page.wine_youtube');
+Route::view('/wine_features', 'software.Solver.features_list.wine_features');
+Route::view('/wine_download', 'software.Solver.software_download.wine_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/sweet_browser', 'software.Solver.browser_screen.sweet_browser');
+Route::view('/sweet_youtube', 'software.Solver.youtube_page.sweet_youtube');
+Route::view('/sweet_features', 'software.Solver.features_list.sweet_features');
+Route::view('/sweet_download', 'software.Solver.software_download.sweet_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/surgical_browser', 'software.Solver.browser_screen.surgical_browser');
+Route::view('/surgical_youtube', 'software.Solver.youtube_page.surgical_youtube');
+Route::view('/surgical_features', 'software.Solver.features_list.surgical_features');
+Route::view('/surgical_download', 'software.Solver.software_download.surgical_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/salon_browser', 'software.Solver.browser_screen.salon_browser');
+Route::view('/salon_youtube', 'software.Solver.youtube_page.salon_youtube');
+Route::view('/salon_features', 'software.Solver.features_list.salon_features');
+Route::view('/salon_download', 'software.Solver.software_download.salon_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/saree_browser', 'software.Solver.browser_screen.saree_browser');
+Route::view('/saree_youtube', 'software.Solver.youtube_page.saree_youtube');
+Route::view('/saree_features', 'software.Solver.features_list.saree_features');
+Route::view('/saree_download', 'software.Solver.software_download.saree_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/sainatry_browser', 'software.Solver.browser_screen.sainatry_browser');
+Route::view('/sainatry_youtube', 'software.Solver.youtube_page.sainatry_youtube');
+Route::view('/sainatry_features', 'software.Solver.features_list.sainatry_features');
+Route::view('/sainatry_download', 'software.Solver.software_download.sainatry_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/print_browser', 'software.Solver.browser_screen.school_browser');
+Route::view('/print_youtube', 'software.Solver.youtube_page.print_youtube');
+Route::view('/print_features', 'software.Solver.features_list.print_features');
+Route::view('/print_download', 'software.Solver.software_download.print_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/pet_browser', 'software.Solver.browser_screen.pet_browser');
+Route::view('/pet_youtube', 'software.Solver.youtube_page.pet_youtube');
+Route::view('/pet_features', 'software.Solver.features_list.pet_features');
+Route::view('/pet_download', 'software.Solver.software_download.pet_download');
 
-Route::view('/School_browser', 'software.Solver.browser_screen.school_browser');
-Route::view('/School_youtube', 'software.Solver.youtube_page.School_youtube');
-Route::view('/School_features', 'software.Solver.features_list.School_features');
-Route::view('/School_download', 'software.Solver.software_download.School_download');
+Route::view('/paint_browser', 'software.Solver.browser_screen.paint_browser');
+Route::view('/paint_youtube', 'software.Solver.youtube_page.paint_youtube');
+Route::view('/paint_features', 'software.Solver.features_list.paint_features');
+Route::view('/paint_download', 'software.Solver.software_download.paint_download');
 
 Route::view('/cloud_browser', 'software.Solver.browser_screen.cloud_browser');
 Route::view('/cloud_youtube', 'software.Solver.youtube_page.cloud_youtube');
