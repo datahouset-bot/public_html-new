@@ -1,4 +1,2 @@
 @extends('software.Solver.software_download.master_downloadlayout')
-@section('new')
-Hardware Billing Software
-@endsection
+@section('new')Jewellery shop Billing Software @endsection

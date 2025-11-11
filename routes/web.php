@@ -238,7 +238,7 @@ Route::view('/pathology_youtube', 'software.Solver.youtube_page.pathology_youtub
 Route::view('/pathology_features', 'software.Solver.features_list.pathology_features');
 Route::view('/pathology_download', 'software.Solver.software_download.pathology_download');
 
-Route::view('/Restaurant_browser', 'software.Solver.browser_screen.hotelmanagement_browser');
+Route::view('/hotelmanagement_browser', 'software.Solver.browser_screen.hotelmanagement_browser');
 Route::view('/hotelmanagement_youtube', 'software.Solver.youtube_page.hotelmanagement_youtube');
 Route::view('/hotelmanagement_features', 'software.Solver.features_list.hotelmanagement_features');
 Route::view('/hotelmanagement_download', 'software.Solver.software_download.hotelmanagement_download');
@@ -357,6 +357,136 @@ Route::view('/paint_browser', 'software.Solver.browser_screen.paint_browser');
 Route::view('/paint_youtube', 'software.Solver.youtube_page.paint_youtube');
 Route::view('/paint_features', 'software.Solver.features_list.paint_features');
 Route::view('/paint_download', 'software.Solver.software_download.paint_download');
+
+Route::view('/organic_browser', 'software.Solver.browser_screen.organic_browser');
+Route::view('/organic_youtube', 'software.Solver.youtube_page.organic_youtube');
+Route::view('/organic_features', 'software.Solver.features_list.organic_features');
+Route::view('/organic_download', 'software.Solver.software_download.organic_download');
+
+Route::view('/optical_browser', 'software.Solver.browser_screen.optical_browser');
+Route::view('/optical_youtube', 'software.Solver.youtube_page.optical_youtube');
+Route::view('/optical_features', 'software.Solver.features_list.optical_features');
+Route::view('/optical_download', 'software.Solver.software_download.optical_download');
+
+Route::view('/mobile_browser', 'software.Solver.browser_screen.mobile_browser');
+Route::view('/mobile_youtube', 'software.Solver.youtube_page.mobile_youtube');
+Route::view('/mobile_features', 'software.Solver.features_list.mobile_features');
+Route::view('/mobile_download', 'software.Solver.software_download.mobile_download');
+
+Route::view('/marble_browser', 'software.Solver.browser_screen.marble_browser');
+Route::view('/marble_youtube', 'software.Solver.youtube_page.marble_youtube');
+Route::view('/marble_features', 'software.Solver.features_list.marble_features');
+Route::view('/marble_download', 'software.Solver.software_download.marble_download');
+
+Route::view('/lubricant_browser', 'software.Solver.browser_screen.lubricant_browser');
+Route::view('/lubricant_youtube', 'software.Solver.youtube_page.lubricant_youtube');
+Route::view('/lubricant_features', 'software.Solver.features_list.lubricant_features');
+Route::view('/lubricant_download', 'software.Solver.software_download.lubricant_download');
+
+Route::view('/kirana_browser', 'software.Solver.browser_screen.kirana_browser');
+Route::view('/kirana_youtube', 'software.Solver.youtube_page.kirana_youtube');
+Route::view('/kirana_features', 'software.Solver.features_list.kirana_features');
+Route::view('/kirana_download', 'software.Solver.software_download.kirana_download');
+
+Route::view('/jewellery_browser', 'software.Solver.browser_screen.jewellery_browser');
+Route::view('/jewellery_youtube', 'software.Solver.youtube_page.jewellery_youtube');
+Route::view('/jewellery_features', 'software.Solver.features_list.jewellery_features');
+Route::view('/jewellery_download', 'software.Solver.software_download.jewellery_download');
+
+Route::view('/grain_browser', 'software.Solver.browser_screen.grain_browser');
+Route::view('/grain_youtube', 'software.Solver.youtube_page.grain_youtube');
+Route::view('/grain_features', 'software.Solver.features_list.grain_features');
+Route::view('/grain_download', 'software.Solver.software_download.grain_download');
+
+Route::view('/glass_browser', 'software.Solver.browser_screen.glass_browser');
+Route::view('/glass_youtube', 'software.Solver.youtube_page.glass_youtube');
+Route::view('/glass_features', 'software.Solver.features_list.glass_features');
+Route::view('/glass_download', 'software.Solver.software_download.glass_download');
+
+Route::view('/gift_browser', 'software.Solver.browser_screen.gift_browser');
+Route::view('/gift_youtube', 'software.Solver.youtube_page.gift_youtube');
+Route::view('/gift_features', 'software.Solver.features_list.gift_features');
+Route::view('/gift_download', 'software.Solver.software_download.gift_download');
+
+Route::view('/furniture_browser', 'software.Solver.browser_screen.furniture_browser');
+Route::view('/furniture_youtube', 'software.Solver.youtube_page.furniture_youtube');
+Route::view('/furniture_features', 'software.Solver.features_list.furniture_features');
+Route::view('/furniture_download', 'software.Solver.software_download.furniture_download');
+
+Route::view('/flower_browser', 'software.Solver.browser_screen.flower_browser');
+Route::view('/flower_youtube', 'software.Solver.youtube_page.flower_youtube');
+Route::view('/flower_features', 'software.Solver.features_list.flower_features');
+Route::view('/flower_download', 'software.Solver.software_download.flower_download');
+
+Route::view('/fire_browser', 'software.Solver.browser_screen.fire_browser');
+Route::view('/fire_youtube', 'software.Solver.youtube_page.fire_youtube');
+Route::view('/fire_features', 'software.Solver.features_list.fire_features');
+Route::view('/fire_download', 'software.Solver.software_download.fire_download');
+
+Route::view('/electric_browser', 'software.Solver.browser_screen.electric_browser');
+Route::view('/electric_youtube', 'software.Solver.youtube_page.electric_youtube');
+Route::view('/electric_features', 'software.Solver.features_list.electric_features');
+Route::view('/electric_download', 'software.Solver.software_download.electric_download');
+
+Route::view('/electronic_browser', 'software.Solver.browser_screen.electronic_browser');
+Route::view('/electronic_youtube', 'software.Solver.youtube_page.electronic_youtube');
+Route::view('/electronic_features', 'software.Solver.features_list.electronic_features');
+Route::view('/electronic_download', 'software.Solver.software_download.electronic_download');
+
+Route::view('/cycle_browser', 'software.Solver.browser_screen.cycle_browser');
+Route::view('/cycle_youtube', 'software.Solver.youtube_page.cycle_youtube');
+Route::view('/cycle_features', 'software.Solver.features_list.cycle_features');
+Route::view('/cycle_download', 'software.Solver.software_download.cycle_download');
+
+Route::view('/Dealer_browser', 'software.Solver.browser_screen.Dealer_browser');
+Route::view('/Dealer_youtube', 'software.Solver.youtube_page.Dealer_youtube');
+Route::view('/Dealer_features', 'software.Solver.features_list.Dealer_features');
+Route::view('/Dealer_download', 'software.Solver.software_download.Dealer_download');
+
+Route::view('/cloth_browser', 'software.Solver.browser_screen.cloth_browser');
+Route::view('/cloth_youtube', 'software.Solver.youtube_page.cloth_youtube');
+Route::view('/cloth_features', 'software.Solver.features_list.cloth_features');
+Route::view('/cloth_download', 'software.Solver.software_download.cloth_download');
+
+Route::view('/building_browser', 'software.Solver.browser_screen.building_browser');
+Route::view('/building_youtube', 'software.Solver.youtube_page.building_youtube');
+Route::view('/building_features', 'software.Solver.features_list.building_features');
+Route::view('/building_download', 'software.Solver.software_download.building_download');
+
+Route::view('/book_browser', 'software.Solver.browser_screen.book_browser');
+Route::view('/book_youtube', 'software.Solver.youtube_page.book_youtube');
+Route::view('/book_features', 'software.Solver.features_list.book_features');
+Route::view('/book_download', 'software.Solver.software_download.book_download');
+
+Route::view('/bakery_browser', 'software.Solver.browser_screen.bakery_browser');
+Route::view('/bakery_youtube', 'software.Solver.youtube_page.bakery_youtube');
+Route::view('/bakery_features', 'software.Solver.features_list.bakery_features');
+Route::view('/bakery_download', 'software.Solver.software_download.bakery_download');
+
+Route::view('/toy_browser', 'software.Solver.browser_screen.toy_browser');
+Route::view('/toy_youtube', 'software.Solver.youtube_page.toy_youtube');
+Route::view('/toy_features', 'software.Solver.features_list.toy_features');
+Route::view('/toy_download', 'software.Solver.software_download.toy_download');
+
+Route::view('/ayurvedik_browser', 'software.Solver.browser_screen.ayurvedik_browser');
+Route::view('/ayurvedik_youtube', 'software.Solver.youtube_page.ayurvedik_youtube');
+Route::view('/ayurvedik_features', 'software.Solver.features_list.ayurvedik_features');
+Route::view('/ayurvedik_download', 'software.Solver.software_download.ayurvedik_download');
+
+Route::view('/pump_browser', 'software.Solver.browser_screen.pump_browser');
+Route::view('/pump_youtube', 'software.Solver.youtube_page.pump_youtube');
+Route::view('/pump_features', 'software.Solver.features_list.pump_features');
+Route::view('/pump_download', 'software.Solver.software_download.pump_download');
+
+Route::view('/online_browser', 'software.Solver.browser_screen.online_browser');
+Route::view('/online_youtube', 'software.Solver.youtube_page.online_youtube');
+Route::view('/online_features', 'software.Solver.features_list.online_features');
+Route::view('/online_download', 'software.Solver.software_download.online_download');
+
+Route::view('/speed_browser', 'software.Solver.browser_screen.speed_browser');
+Route::view('/speed_youtube', 'software.Solver.youtube_page.speed_youtube');
+Route::view('/speed_features', 'software.Solver.features_list.speed_features');
+Route::view('/speed_download', 'software.Solver.software_download.speed_download');
 
 Route::view('/cloud_browser', 'software.Solver.browser_screen.cloud_browser');
 Route::view('/cloud_youtube', 'software.Solver.youtube_page.cloud_youtube');

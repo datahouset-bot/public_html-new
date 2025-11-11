@@ -2,7 +2,7 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <title>Garment Billing Software Demo</title>
+    <title>Hardware Billing Software Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap -->
@@ -54,7 +54,7 @@
 <body>
 
 <div class="container py-4">
-    <h1 class="text-center demo-title">Cloud Software Demo</h1>
+    <h1 class="text-center demo-title">computer shop Billing Software Demo</h1>
 
     <!-- Image Slideshow -->
     <div id="garmentDemoCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
