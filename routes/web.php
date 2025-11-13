@@ -64,13 +64,18 @@ Route::post('/modify', [App\Http\Controllers\userprofileController::class, 'modi
  Route::get('howediteditemgroups/{id}',[App\Http\Controllers\ItemgroupController::class,'show']);
 
 
+Route::resource('salaryslip', App\Http\Controllers\salarycontroller::class);
 
+Route::get('/salaryslip/getEmployees', function () {
+    return App\Models\User::select('id', 'name', 'email')->get();
+})->name('salaryslip.getEmployees');
 
+Route::get('/get-user-details/{id}', [App\Http\Controllers\salarycontroller::class, 'getUserDetails']);
 
+Route::put('/salaryslip/employee/{id}', [App\Http\Controllers\salarycontroller::class, 'update'])
+     ->name('salaryslip.employee.update');
 
-
-
-
+Route::get('/salaryslip/employee/{id}', [App\Http\Controllers\salarycontroller::class, 'getEmployeeDetails']);
 
 // master Route---item-----------------------------------------------
 Route::get('/item', [App\Http\Controllers\ItemController::class, 'index'])->name('item');

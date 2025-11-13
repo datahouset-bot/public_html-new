@@ -34,6 +34,8 @@
                             <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{url('/account')}}">Customer</a>
+                                    <a class="nav-link" href="{{url('/salaryslip')}}">salary</a>
+                                    <a class="nav-link" href="{{url('salaryslip/create')}}">Add Employee</a>
                                     <a class="nav-link" href="404.html">Supplier</a>
                                     <a class="nav-link" href="500.html">Account Group</a>
                                 </nav>

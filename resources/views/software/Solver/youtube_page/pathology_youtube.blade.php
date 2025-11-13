@@ -5,7 +5,9 @@
     <title>Demo Video Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
@@ -43,49 +45,66 @@
 
 <div class="container py-4">
     <h1 class="text-center fw-bold mb-4">🎥 Demo Video Gallery / डेमो वीडियो गैलरी</h1>
-    
-    <div class="text-center my-4">
-        <p class="fw-bold fs-5">🙏 Please Subscribe to My Channel / कृपया मेरे चैनल को सब्सक्राइब करें</p>
-        <div class="g-ytsubscribe" 
-             data-channelid="UCArw9uq7lQNVMyWSLO9XzuQ" 
-             data-layout="full" 
-             data-theme="default" 
-             data-count="default">
-        </div>
+    <!-- YouTube Subscribe Button -->
+<div class="text-center my-4">
+    <p class="fw-bold fs-5">🙏 Please Subscribe to My Channel / कृपया मेरे चैनल को सब्सक्राइब करें</p>
+    <div class="g-ytsubscribe" 
+         data-channelid="UCArw9uq7lQNVMyWSLO9XzuQ" 
+         data-layout="full" 
+         data-theme="default" 
+         data-count="default">
     </div>
+</div>
 
-    <script src="https://apis.google.com/js/platform.js"></script>
+<!-- Load YouTube Platform JS -->
+<script src="https://apis.google.com/js/platform.js"></script>
 
+
+    <!-- Video Grid -->
     <div class="row g-4">
         <div class="col-md-4 col-sm-6">
             <div class="video-container">
-                <iframe src="https://youtube.com/embed/LDLcHFgIt30" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://youtube.com/embed/g2ws2u3ED30" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EqVrlBGXOYQ" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         
     </div>
 
-    <h2 class="section-title">📺 Full Playlist / पूरी प्लेलिस्ट</h2>
+    <!-- Playlist -->
+    <!-- Playlist -->
+<h2 class="section-title">📺 Full Playlist / पूरी प्लेलिस्ट</h2>
 <div class="video-container mb-4">
     <iframe 
-src="https://www.youtube.com/embed/LDLcHFgIt30" 
+        src="https://www.youtube.com/embed/g2ws2u3ED30" 
         frameborder="0" 
         allowfullscreen>
     </iframe>
 </div>
 
-    <div class="text-center my-4">
-        <p class="fw-bold fs-5">🙏 Please Subscribe to My Channel / कृपया मेरे चैनल को सब्सक्राइब करें</p>
-        <div class="g-ytsubscribe" 
-             data-channelid="UCArw9uq7lQNVMyWSLO9XzuQ" 
-             data-layout="full" 
-             data-theme="default" 
-             data-count="default">
-        </div>
+
+    <!-- Subscribe Section -->
+<!-- YouTube Subscribe Button -->
+<div class="text-center my-4">
+    <p class="fw-bold fs-5">🙏 Please Subscribe to My Channel / कृपया मेरे चैनल को सब्सक्राइब करें</p>
+    <div class="g-ytsubscribe" 
+         data-channelid="UCArw9uq7lQNVMyWSLO9XzuQ" 
+         data-layout="full" 
+         data-theme="default" 
+         data-count="default">
     </div>
+</div>
+
+<!-- Load YouTube Platform JS -->
+<script src="https://apis.google.com/js/platform.js"></script>
 
 </div>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
