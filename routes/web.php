@@ -65,6 +65,8 @@ Route::post('/modify', [App\Http\Controllers\userprofileController::class, 'modi
 
 
 Route::resource('salaryslip', App\Http\Controllers\salarycontroller::class);
+Route::POST('salaryslip_update', [App\Http\Controllers\salarycontroller::class, 'update']);
+
 
 Route::get('/salaryslip/getEmployees', function () {
     return App\Models\User::select('id', 'name', 'email')->get();

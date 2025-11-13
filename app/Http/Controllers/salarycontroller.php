@@ -91,34 +91,43 @@ public function index()
     {
         //
     }
-public function update(Request $request, $id)
+public function update(Request $request)
 {
-    dd('$request->all()');
-    $employee = Employee::findOrFail($id);
+    $data = $request->all();
 
-    $employee->user_id = $request->employee_id;
-    $employee->employee_name = $request->name;
-    $employee->designation = $request->designation;
-    $employee->month = $request->salary_month;
-    $employee->basic_salary = $request->basic_salary;
-    $employee->petrol_allowance = $request->petrol_allowance;
+    // Find employee using employee_id or user_id
+    $employee = Employee::find($request->employee_id ?? $request->user_id);
 
-    $employee->sale_incentive = $request->sales_bonus;
-    $employee->amc_incentive = $request->amc_bonus;
-    $employee->bonus = $request->bonus;
+    if (!$employee) {
+        return response()->json([
+            'message' => 'Employee not found!',
+            'data' => $data
+        ], 404);
+    }
 
-    $employee->full_day_amt_deduction = $request->amt_leaves_fullday;
-    $employee->half_day_amt_deduction = $request->amt_leaves_halfday;
+    // Update all fields safely
+    $employee->Emp_name             = $data['name'] ?? $employee->Emp_name;
+    $employee->designation          = $data['designation'] ?? $employee->designation;
+    $employee->basic_salary         = $data['basic_salary'] ?? $employee->basic_salary;
+    $employee->petrol_allowance     = $data['petrol_allowance'] ?? $employee->petrol_allowance;
+    $employee->sale_incentive       = $data['sales_bonus'] ?? $employee->sale_incentive;
+    $employee->amc_incentive        = $data['amc_bonus'] ?? $employee->amc_incentive;
+    $employee->bonus                = $data['bonus'] ?? $employee->bonus;
+    $employee->full_day_amt_deduction = $data['amt_leaves_fullday'] ?? $employee->full_day_amt_deduction;
+    $employee->halfday_amt_deduction  = $data['amt_leaves_halfday'] ?? $employee->halfday_amt_deduction;
+    $employee->leave_days           = $data['leaves'] ?? $employee->leave_days;
+    $employee->half_days            = $data['half_leaves'] ?? $employee->half_days;
+    $employee->leave_dates          = $data['leave_dates'] ?? $employee->leave_dates;
+    $employee->remark               = $data['remark'] ?? $employee->remark;
 
-    $employee->leave_dates = $request->leave_dates;
-    $employee->remark = $request->remark;
-
-    $employee->save();
+    $employee->update(); // ✅ use save() or update()
 
     return response()->json([
-        'message' => 'Employee updated successfully!'
+        'message' => 'DATA UPDATED SUCCESSFULLY!',
+        'updated_data' => $employee
     ]);
 }
+
 
 
 

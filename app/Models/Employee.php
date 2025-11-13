@@ -13,6 +13,7 @@ class Employee extends Model
         'name',
         'designation',
         'basic_salary',
+        'month',
         'petrol_allowance',
         'sale_incentive',
         'amc_incentive',

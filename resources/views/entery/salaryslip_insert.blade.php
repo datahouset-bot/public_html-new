@@ -41,7 +41,7 @@
 
       <input name="emp_name" id="emp_name" placeholder="Employee Name same as User">
       <input name="designation" id="designation" placeholder="Designation">
-      <input name="salary_month" id="salary_month" type="month">
+      <input name="salary_month" id="salary_month" type="text">
       <input name="slip_date" id="date" type="date" placeholder="Slip Date">
 
       <br>

@@ -40,7 +40,7 @@
     <option value="{{ $emp->id }}">{{ $emp->Emp_name }} ({{ $emp->designation }})</option>
 @endforeach
   </select>
-
+  <input type="text" class="form-control" id="user_id" >
   <input type="text" class="form-control" id="name" placeholder="Employee Name">
   <input type="text" class="form-control" id="designation" placeholder="Designation">
   <input type="month" class="form-control" id="salary_month">
@@ -64,9 +64,9 @@
   <textarea class="form-control" id="remark" placeholder="Remark"></textarea>
 
  <div class="text-center mt-3">
-    <button type="submit" id="saveBtn" class="btn btn-primary">Generate Slip</button>
+    <button type="submit" id="saveBtn" class="btn btn-primary">Save Employ Info  </button>
 
-<button type="button" id="updateEmployee" class="btn btn-warning">Update Employee</button>
+
 
 </div>
 
@@ -93,7 +93,8 @@ $(document).ready(function () {
       }
 
       $.get(`/salaryslip/employee/${empId}`, function (emp) {
-          $('#name').val(emp.Emp_name);
+        $('#user_id').val(emp.id);  
+        $('#name').val(emp.Emp_name);
           $('#designation').val(emp.designation);
           $('#basic_salary').val(emp.basic_salary);
           $('#petrol_allowance').val(emp.petrol_allowance);
@@ -108,100 +109,56 @@ $(document).ready(function () {
           $('#remark').val(emp.remark);
       });
   });
-
-  // =============================
-  // SAVE NEW EMPLOYEE (store)
-  // =============================
-  $('#salaryform').on('submit', function (e) {
-      e.preventDefault();
-
-      $.ajax({
-          url: "{{ route('salaryslip.store') }}",
-          type: "POST",
-          data: {
-              employee_id: $('#employeeSelect').val(),
-              name: $('#name').val(),
-              designation: $('#designation').val(),
-              salary_month: $('#salary_month').val(),
-              date: $('#date').val(),
-              basic_salary: $('#basic_salary').val(),
-              petrol_allowance: $('#petrol_allowance').val(),
-              sales_bonus: $('#sales_bonus').val(),
-              amc_bonus: $('#amc_bonus').val(),
-              bonus: $('#bonus').val(),
-              amt_leaves_fullday: $('#amt_leaves_fullday').val(),
-              amt_leaves_halfday: $('#amt_leaves_halfday').val(),
-              leaves: $('#leaves').val(),
-              half_leaves: $('#half_leaves').val(),
-              leave_dates: $('#leave_dates').val(),
-              remark: $('#remark').val(),
-          },
-          success: function (res) {
-              $('#message').removeClass('d-none alert-danger')
-                           .addClass('alert-success')
-                           .text(res.message);
-
-              $('#salaryform')[0].reset();
-              $('#employeeSelect').val('');
-          },
-          error: function () {
-              $('#message').removeClass('d-none alert-success')
-                           .addClass('alert-danger')
-                           .text("Something went wrong!");
-          }
-      });
-  });
-
-  // =============================
-  // UPDATE EMPLOYEE (update)
-  // =============================
-  $('#updateEmployee').click(function () {
-
-      let id = $('#employeeSelect').val();
-      if (!id) {
-          alert("Please select an employee to update.");
-          return;
-      }
-
-      $.ajax({
-          url: `/salaryslip/${id}`,
-          type: "POST",   // use POST + _method PUT
-          data: {
-              _token: $('meta[name="csrf-token"]').attr("content"),
-              _method: "PUT",
-
-              employee_id: $('#employeeSelect').val(),
-              name: $('#name').val(),
-              designation: $('#designation').val(),
-              salary_month: $('#salary_month').val(),
-              date: $('#date').val(),
-              basic_salary: $('#basic_salary').val(),
-              petrol_allowance: $('#petrol_allowance').val(),
-              sales_bonus: $('#sales_bonus').val(),
-              amc_bonus: $('#amc_bonus').val(),
-              bonus: $('#bonus').val(),
-              amt_leaves_fullday: $('#amt_leaves_fullday').val(),
-              amt_leaves_halfday: $('#amt_leaves_halfday').val(),
-              leaves: $('#leaves').val(),
-              half_leaves: $('#half_leaves').val(),
-              leave_dates: $('#leave_dates').val(),
-              remark: $('#remark').val(),
-          },
-          success: function (res) {
-              $('#message').removeClass('d-none alert-danger')
-                           .addClass('alert-success')
-                           .text(res.message);
-          },
-          error: function () {
-              $('#message').removeClass('d-none alert-success')
-                           .addClass('alert-danger')
-                           .text("Update failed!");
-          }
-      });
-
-  });
-
 }); // END document ready
+
+
+
+
+</script>
+<script>
+// =============================
+// SEND FORM DATA TO CONTROLLER
+// =============================
+$('#saveBtn').on('click', function (e) {
+    e.preventDefault(); // stop form reload
+
+    let formData = {
+        _token: $('meta[name="csrf-token"]').attr('content'),
+        employee_id: $('#employeeSelect').val(),
+        user_id: $('#user_id').val(),
+        name: $('#name').val(),
+        designation: $('#designation').val(),
+        salary_month: $('#salary_month').val(),
+        date: $('#date').val(),
+        basic_salary: $('#basic_salary').val(),
+        petrol_allowance: $('#petrol_allowance').val(),
+        sales_bonus: $('#sales_bonus').val(),
+        amc_bonus: $('#amc_bonus').val(),
+        bonus: $('#bonus').val(),
+        amt_leaves_fullday: $('#amt_leaves_fullday').val(),
+        amt_leaves_halfday: $('#amt_leaves_halfday').val(),
+        leaves: $('#leaves').val(),
+        half_leaves: $('#half_leaves').val(),
+        leave_dates: $('#leave_dates').val(),
+        remark: $('#remark').val()
+    };
+
+    $.ajax({
+        url: "{{ url('salaryslip_update') }}",
+        type: "POST",
+        data: formData,
+        success: function (response) {
+            console.log("✅ Response received from controller:", response);
+            alert(response.message);
+        },
+        error: function (xhr) {
+            console.error("❌ Error sending data:", xhr.responseText);
+            alert("Something went wrong!");
+        }
+    });
+});
+
+
 </script>
 
 </body>

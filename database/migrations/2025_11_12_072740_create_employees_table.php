@@ -21,17 +21,18 @@ return new class extends Migration
                   
             $table->string('Emp_name');
 
-            $table->bigInteger('month')->default(0)->nullable();
-            $table->string('designation');
-            $table->decimal('basic_salary', 10, 2)->default(0);
-            $table->decimal('petrol_allowance', 10, 2)->default(0);
-            $table->decimal('sale_incentive', 10, 2)->default(0);
-            $table->decimal('amc_incentive', 10, 2)->default(0);
-            $table->decimal('bonus', 10, 2)->default(0);
-            $table->decimal('full_day_amt_deduction', 10, 2)->default(0);
-            $table->decimal('halfday_amt_deduction', 10, 2)->default(0);
-            $table->integer('leave_days')->default(0);
-            $table->integer('half_days')->default(0);
+
+            $table->string('month')->nullable(0)->nullable();
+            $table->string('designation')->nullable();
+            $table->decimal('basic_salary', 10, 2)->nullable(0);
+            $table->decimal('petrol_allowance', 10, 2)->nullable();
+            $table->decimal('sale_incentive', 10, 2)->nullable();
+            $table->decimal('amc_incentive', 10, 2)->nullable();
+            $table->decimal('bonus', 10, 2)->nullable();
+            $table->decimal('full_day_amt_deduction', 10, 2)->nullable();
+            $table->decimal('halfday_amt_deduction', 10, 2)->nullable();
+            $table->integer('leave_days')->nullable();
+            $table->integer('half_days')->nullable();
             $table->text('leave_dates')->nullable(); // can store comma-separated or JSON dates
             $table->text('remark')->nullable();
             
