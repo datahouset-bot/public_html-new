@@ -63,21 +63,17 @@ Route::post('/modify', [App\Http\Controllers\userprofileController::class, 'modi
  Route::get('deleteitemgroups/{id}',[App\Http\Controllers\ItemgroupController::class,'destroy']);
  Route::get('howediteditemgroups/{id}',[App\Http\Controllers\ItemgroupController::class,'show']);
 
+ // salary Route---salaryslip-----------------------------------------------
 
 Route::resource('salaryslip', App\Http\Controllers\salarycontroller::class);
 Route::POST('salaryslip_update', [App\Http\Controllers\salarycontroller::class, 'update']);
-
-
+Route::post('software_store', [App\Http\Controllers\salarycontroller::class, 'softwareStore']);
 Route::get('/salaryslip/getEmployees', function () {
     return App\Models\User::select('id', 'name', 'email')->get();
 })->name('salaryslip.getEmployees');
-
 Route::get('/get-user-details/{id}', [App\Http\Controllers\salarycontroller::class, 'getUserDetails']);
-
-Route::put('/salaryslip/employee/{id}', [App\Http\Controllers\salarycontroller::class, 'update'])
-     ->name('salaryslip.employee.update');
-
 Route::get('/salaryslip/employee/{id}', [App\Http\Controllers\salarycontroller::class, 'getEmployeeDetails']);
+Route::get('/salaryslip/employee/{id}/sales', [App\Http\Controllers\salarycontroller::class, 'getEmployeeSales']);
 
 // master Route---item-----------------------------------------------
 Route::get('/item', [App\Http\Controllers\ItemController::class, 'index'])->name('item');

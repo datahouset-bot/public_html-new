@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Employee;
-// use App\Models\Employees;
+use App\Models\productsale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -75,7 +75,36 @@ public function index()
     
 
     }
+ public function softwareStore(Request $request)
+    {
+        $data = $request->all();
+        
+        $validate= validator::make($request->all(),[
+            's.no' => 'numeric',
+            'user_id' => 'required|numeric',
+            'party' => 'required|string',
+            'mobile'=>'required|string',
+            'saledate' => 'nullable|numeric',
+            'software' => 'required|string',
+            'remark' => 'nullable|string',
+            'amt' => 'required|numeric',
+        ]);
+        if($validate->fails())
+        { return response()->json(['errors' => $validate->errors(),'message' => 'Validation failed','data' => $data], 422);  ;
+        }
+        $productsale = new productsale();
+        $productsale->sno = $request->s_no;
+        $productsale->user_id = $request->user_id;
+        $productsale->partyname = $request->party;
+        $productsale->mobileno = $request->mobile;
+        $productsale->saledate = $request->ssdate;
+        $productsale->softwarename = $request->software;
+        $productsale->software_remark = $request->remark;
+        $productsale->software_account = $request->amt;
+        $productsale->save();
+        return response()->json(['message' => 'Software sale recorded successfully!','data' => $productsale], 200);
 
+    }
     /**
      * Display the specified resource.
      */
@@ -155,4 +184,11 @@ public function getUserDetails($id)
     return response()->json($user);
 }
 
+public function getEmployeeSales($id)
+{
+    $sales = productsale::where('user_id', $id)->get();
+
+    return response()->json($sales);
+
+}
 }
