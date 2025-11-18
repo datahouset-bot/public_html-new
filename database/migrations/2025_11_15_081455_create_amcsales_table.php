@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('amcssale', function (Blueprint $table) {
-        $table->id()->autoIncrement();
+        Schema::create('amcsales', function (Blueprint $table) {
+            
+             $table->id()->autoIncrement();
           $table->unsignedBigInteger('user_id');
          $table->foreign('user_id')
                   ->references('id')->on('users')
                   ->onDelete('cascade');
-            $table->integer('sno')->unique();
+            $table->string('sno')->nullable();
             $table->string('partyname');
             $table->string('mobileno', 15)->nullable();
-            $table->date('amc_date')->nullable(); // changed from saledate to amc_date
+            $table->string('amc_date')->nullable(); // changed from saledate to amc_date
             $table->string('softwarename');
             $table->string('software_remark')->nullable();
             $table->string('software_account')->nullable();
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('amcssale');
+        Schema::dropIfExists('amcsales');
     }
 };

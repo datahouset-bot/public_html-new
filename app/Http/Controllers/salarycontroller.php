@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amcsale;
 use App\Models\User;
 use App\Models\Employee;
 use App\Models\productsale;
@@ -80,7 +81,6 @@ public function index()
         $data = $request->all();
         
         $validate= validator::make($request->all(),[
-            's.no' => 'numeric',
             'user_id' => 'required|numeric',
             'party' => 'required|string',
             'mobile'=>'required|string',
@@ -105,6 +105,35 @@ public function index()
         return response()->json(['message' => 'Software sale recorded successfully!','data' => $productsale], 200);
 
     }
+// store amc data
+public function amcstore(Request $request)
+{
+    $data=$request->all();
+    $validate=validator::make($request->all(),[
+        
+            'user_id' => 'required|numeric',
+            
+            'amt' => 'required|numeric',
+    ]);
+if($validate->fails()){
+   return response()->json(['errors' => $validate->errors(),'message' => 'Validation failed','data' => $data], 422);  ; 
+}
+$amcsale=new Amcsale();
+$amcsale->sno=$request->s_no;
+$amcsale->user_id=$request->user_id;
+$amcsale->partyname = $request->party;
+$amcsale->mobileno = $request->mobile;
+$amcsale->amc_date = $request->amcdate;
+$amcsale->softwarename = $request->software;
+$amcsale->software_remark = $request->remark;
+$amcsale->software_account = $request->amt;
+$amcsale->save();
+
+return response()->json(['message'=>'Amc save successfully!','data'=>$data],200);
+}
+
+
+
     /**
      * Display the specified resource.
      */
@@ -158,15 +187,31 @@ public function update(Request $request)
 }
 
 
+public function destroy(string $id)
+{
+    // Delete AMC records
+    $amcDeleted = amcsale::where('user_id', $id)->delete();
 
+    // Delete Software Sales records
+    $saleDeleted = productsale::where('user_id', $id)->delete();
+
+    if ($amcDeleted || $saleDeleted) {
+        return response()->json([
+            'success' => true,
+            'message' => 'AMC + Sale data deleted'
+        ]);
+    }
+
+    return response()->json([
+        'success' => false,
+        'message' => 'No data found'
+    ], 404);
+}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    
     public function getEmployees()
 {
     return Employee::get();
@@ -191,4 +236,10 @@ public function getEmployeeSales($id)
     return response()->json($sales);
 
 }
+public function getEmployeeamcs ($id)
+{
+    $amc=Amcsale::where('user_id',$id)->get();
+    return response()->json($amc);
+}
+
 }

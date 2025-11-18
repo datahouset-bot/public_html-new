@@ -24,6 +24,158 @@ textarea::placeholder { font-size: 18px; color: black; }
   .btn:hover { background: #0056b3; }
   label { font-weight: bold; font-size: 22px; margin-top: 10px; display: block; }
    { font-size: 18px; }
+   .field-value {
+    display: none;
+}
+
+@media print {
+      #salaryform {
+        column-count: 2 !important;
+        column-gap: 40px !important;
+        column-rule: 2px solid #ccc !important;
+    }
+
+    /* KEEP LABEL + VALUE TOGETHER */
+    #salaryform label {
+        display: block !important;
+        position: relative !important;
+        font-size: 14px !important;
+        margin-bottom: 8px !important;
+        padding-right: 140px !important;
+        break-inside: avoid !important;     /* Prevent splitting between columns */
+        page-break-inside: avoid !important;
+    }
+
+    /* VALUE stays inside same label block */
+    .field-value {
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        display: inline-block !important;
+    }
+
+    /* Hide input fields */
+    #salaryform input,
+    #salaryform textarea,
+    #salaryform select {
+        display: none !important;
+    }
+    
+    label {
+        font-size: 14px !important;
+        margin:  0 !important;
+    }
+
+    /* Container width narrow */
+    .container {
+        width: 90% !important;
+        margin: 0 auto !important;
+        padding: 10px !important;
+    }
+    /* Hide buttons */
+    .print-btn,
+    .save-btn,
+    .deletebtn {
+        display: none !important;
+    }
+
+    /* Hide sale / amc input sections */
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+
+    /* Hide sale/AMC input elements */
+    #sales_table input,
+    #sales_table button,
+    #amc_table input,
+    #amc_table button {
+        display: none !important;
+    }
+        h2 {
+        font-size: 16px !important;
+        padding: 4px !important;
+        margin: 2px 0 !important;
+    }
+
+    h3 {
+        font-size: 13px !important;
+        padding: 3px !important;
+        margin: 1px 0 !important;
+    }
+
+    /* Optional: reduce section titles too */
+    .section-title {
+        font-size: 14px !important;
+        padding: 4px !important;
+        margin: 6px 0 !important;
+    }
+      /* ===== SOFTWARE SALE TABLE COLUMN SHRINK ===== */
+    #stable th, 
+    #stable td {
+        font-size: 12px !important;
+        padding: 1px !important;
+    }
+
+    #stable {
+        width: 100% !important;
+        table-layout: fixed !important;
+    }
+
+    #stable th:nth-child(1) { width: 5% !important; }   /* S.no */
+    #stable th:nth-child(2) { width: 5% !important; }  /* User ID */
+    #stable th:nth-child(3) { width: 10% !important; }  /* Party */
+    #stable th:nth-child(4) { width: 15% !important; }  /* Mobile */
+    #stable th:nth-child(5) { width: 15% !important; }  /* Sale Date */
+    #stable th:nth-child(6) { width: 12% !important; }  /* Software Name */
+    #stable th:nth-child(7) { width: 12% !important; }  /* Remark */
+    #stable th:nth-child(8) { width: 10% !important; }  /* Amount */
+
+
+    #stable th:last-child,
+    #stable td:last-child {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* AMC TABLE - Hide Action Column */
+    #amctable th:last-child,
+    #amctable td:last-child {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* ===== AMC TABLE COLUMN SHRINK ===== */
+    #amctable th, 
+    #amctable td {
+        font-size: 12px !important;
+        padding: 1px !important;
+    }
+
+    #amctable {
+        width: 100% !important;
+        table-layout: fixed !important;
+    }
+
+    #amctable th:nth-child(1) { width: 5% !important; }
+    #amctable th:nth-child(2) { width: 5% !important; }
+    #amctable th:nth-child(3) { width: 10% !important; }
+    #amctable th:nth-child(4) { width: 15% !important; }
+    #amctable th:nth-child(5) { width: 15% !important; }
+    #amctable th:nth-child(6) { width: 12% !important; }
+    #amctable th:nth-child(7) { width: 12% !important; }
+    #amctable th:nth-child(8) { width: 10% !important; }
+
+    /* AMC TABLE - Hide Action Column */
+    #amctable th:last-child,
+    #amctable td:last-child {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+}
 </style>
 
 </head>
@@ -52,7 +204,7 @@ textarea::placeholder { font-size: 18px; color: black; }
 <label for="name">Name</label> <input type="text" class="form-control"id="name" placeholder="Employee Name">
 <label for="designation">Designation</label> <input type="text" class="form-control" id="designation" placeholder="Designation">
 <label for="salary_month">Salary Month</label> <input type="month" class="form-control" id="salary_month">
-<label for="date">Date</label> <input type="date" class="form-control" id="date">
+{{-- <label for="date">Date</label> <input type="date" class="form-control" id="date"> --}}
 <label for="basic_salary">Basic Salary</label> <input type="number" class="form-control" id="basic_salary" placeholder="Basic Salary">
 <label for="petrol_allowance">Petrol Allowance</label> <input type="number" class="form-control" id="petrol_allowance" placeholder="Petrol Allowance">
 <label for="sales_bonus">Sales Bonus</label> <input type="number" class="form-control" id="sales_bonus" placeholder="Sales Incentive QTY x 300">
@@ -65,7 +217,10 @@ textarea::placeholder { font-size: 18px; color: black; }
 <label for="leave_dates">Leave Dates (comma separated)</label> <textarea class="form-control" id="leave_dates" placeholder="Leave Dates (comma separated)"></textarea>
 <label for="remark">Remark</label> <textarea class="form-control" id="remark" placeholder="Remark"></textarea>
 <div class="text-center mt-3">
-<button type="submit" id="saveBtn" class="btn btn-primary col-md-2" style="text-size-adjust: 100%;">Save Employ Info  </button>
+<button class="btn btn-success float-start print-btn" type="button">Print Salary Slip</button>
+<button type="submit" id="saveBtn" class="btn btn-primary col-md-2 save-btn">Save Employ Info</button>
+<td><button class="btn btn-danger btn-remove float-end deletebtn" data-id="{{$emp->user_id}}">DELETE</button></td>
+
 </div>
 {{-- <div class="section-title">Software New Sales</div> --}}
 
@@ -76,9 +231,9 @@ textarea::placeholder { font-size: 18px; color: black; }
     @csrf     
   <table id="sales_table">
     <thead>
-      <tr>
+      <tr class="no-print">
         <th>User ID</th>
-        <th>S.No</th>
+        {{-- <th>S.No</th> --}}
         <th>Party Name</th>
         <th>Mobile No</th>
         <th>Sale Date</th>
@@ -88,23 +243,61 @@ textarea::placeholder { font-size: 18px; color: black; }
         <th>Action</th>
       </tr>
     </thead>
-     <td><input type="text" class="form-control" id="userid" ></td>
-    <td><input class="form-control" id="s_no" type="number" ></td>
+    <tr class="sale-input-row no-print">
+     <td><input type="text" class="form-control" id="userid" readonly></td>
+    <input class="form-control" id="s_no" type="hidden" >
     <td><input class="form-control" id="party" placeholder="Party Name"></td>
     <td><input class="form-control" id="mobile" placeholder="Mobile No"></td>
     <td><input class="form-control" id="saledate" type="date"></td>
     <td><input class="form-control" id="software" placeholder="Software Name"></td>
     <td><input class="form-control" id="remarkfors" placeholder="Software Remark"></td>
     <td><input class="form-control" id="amt" placeholder="Amt"></td>
-     <td><button id="saleadd" class="btn btn-primary float-end btn-add" >+</button></td>
+     <td><button id="saleadd" class="btn btn-primary float-end btn-add" >+</button></td></tr>
+    <tbody></tbody>
+  </table></form>
+
+{{-- // =============================
+// AMC SALES TABLE
+// ============================= --}}
+
+
+   {{-- <div class="section-title">AMC Sales</div> --}}
+   <form id="amcsale" method="post"></form>
+   @csrf
+  <table id="amc_table">
+    <thead>
+      <tr class="no-print">
+        <th>User ID</th>
+        <th>Party Name</th>
+        <th>Mobile No</th>
+        <th>AMC Date</th>
+        <th>Software Name</th>
+        <th>Software Remark</th>
+        <th>Software Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tr class="amc-input-row no-print">
+
+      <td><input type="text" class="form-control" id="amcid" readonly></td>
+    <input class="form-control" id="a_no" type="hidden" >
+    <td><input class="form-control" id="aparty" placeholder="Party Name"></td>
+    <td><input class="form-control" id="amobile" placeholder="Mobile No"></td>
+    <td><input class="form-control" id="amcdate" type="date" ></td>
+    <td><input class="form-control" id="softwareamc" placeholder="Software Name"></td>
+    <td><input class="form-control" id="remarkforamc" placeholder="Software Remark"></td>
+    <td><input class="form-control" id="amtamc" placeholder="Amt"></td>
+     <td><button id="amcadd" class="btn btn-primary float-end btn-add" >+</button></td></tr>
     <tbody></tbody>
   </table>
+  </form>
 
+{{-- software sale show --}}
     <table id="stable">
     <thead>
       <tr>
+        <th>S.no</th>
         <th>User ID</th>
-        <th>S.No</th>
         <th>Party Name</th>
         <th>Mobile No</th>
         <th>Sale Date</th>
@@ -116,11 +309,66 @@ textarea::placeholder { font-size: 18px; color: black; }
     </thead>
     <tbody></tbody>
   </table>
+
+{{-- amc data showw--}}
+  <table id="amctable">
+    <thead>
+      <tr>
+         <th>S.no</th>
+        <th>User ID</th>
+        <th>Party Name</th>
+        <th>Mobile No</th>
+        <th>AMC Date</th>
+        <th>Software Name</th>
+        <th>Software Remark</th>
+        <th>Software Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
 </div>
+{{-- 
+use to show data while print a salaryslip --}}
+<script>
+function preparePrintValues() {
 
+    document.querySelectorAll("#salaryform label").forEach(label => {
 
-{{-- <div id="message" class="alert mt-3 d-none"></div> --}}
+        // Find next INPUT / SELECT / TEXTAREA manually
+        let input = label.nextElementSibling;
+        while (input && input.nodeType !== 1) {
+            input = input.nextSibling;
+        }
 
+        if (!input || !["INPUT", "SELECT", "TEXTAREA"].includes(input.tagName))
+            return;
+
+        // Remove old span if exists
+        let old = label.querySelector(".field-value");
+        if (old) old.remove();
+
+        // Create new span
+        let span = document.createElement("span");
+        span.className = "field-value";
+        span.innerText = " " + input.value;
+
+        // INSERT VALUE **INSIDE LABEL**
+        label.appendChild(span);
+    });
+}
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".print-btn").addEventListener("click", function () {
+        preparePrintValues();
+        window.print();
+    });
+});
+</script>
+
+{{-- 
+load employee details
+--}}
 
 <script>
 $(document).ready(function () {
@@ -140,6 +388,7 @@ $(document).ready(function () {
     $.get(`/salaryslip/employee/${empId}`, function (emp) {
         $('#user_id').val(emp.id);  
              $('#userid').val(emp.id);  
+             $("#amcid").val(emp.id);
         $('#name').val(emp.Emp_name);
         $('#designation').val(emp.designation);
         $('#salary_month').val(emp.month);
@@ -158,6 +407,52 @@ $(document).ready(function () {
   });
 }); // END document ready
 </script>
+
+
+<script>
+// =============================
+// SEND FORM DATA TO CONTROLLER
+// =============================
+$('#saveBtn').on('click', function (e) {
+    e.preventDefault(); // stop form reload
+
+    let formData = {
+        _token: $('meta[name="csrf-token"]').attr('content'),
+        employee_id: $('#employeeSelect').val(),
+        user_id: $('#user_id').val(),
+        name: $('#name').val(),
+        designation: $('#designation').val(),
+        salary_month: $('#salary_month').val(),
+        basic_salary: $('#basic_salary').val(),
+        petrol_allowance: $('#petrol_allowance').val(),
+        sales_bonus: $('#sales_bonus').val(),
+        amc_bonus: $('#amc_bonus').val(),
+        bonus: $('#bonus').val(),
+        amt_leaves_fullday: $('#amt_leaves_fullday').val(),
+        amt_leaves_halfday: $('#amt_leaves_halfday').val(),
+        leaves: $('#leaves').val(),
+        half_leaves: $('#half_leaves').val(),
+        leave_dates: $('#leave_dates').val(),
+        remark: $('#remark').val()
+    };
+
+    $.ajax({
+        url: "{{ url('salaryslip_update') }}",
+        type: "POST",
+        data: formData,
+        success: function (response) {
+            console.log("✅ Response received from controller:", response);
+            alert(response.message);
+        },
+        error: function (xhr) {
+            console.error("❌ Error sending data:", xhr.responseText);
+            alert("Something went wrong!");
+        }
+    });
+});
+
+</script>
+
 <script>
 // =============================
 // show product sale data in table
@@ -168,11 +463,11 @@ $('#employeeSelect').on('change', function () {
     $.get(`/salaryslip/employee/${empId}/sales`, function (sales) {
         let tbody = $('#stable tbody');
         tbody.empty(); // Clear existing rows
-
+let r=1;
         sales.forEach(function (sale) {
             let row = `<tr>
+              <td>${r++}</td>
                 <td>${sale.user_id}</td>
-                <td>${sale.sno}</td>
                 <td>${sale.partyname}</td>
                 <td>${sale.mobileno}</td>
                 <td>${sale.saledate}</td>
@@ -215,16 +510,15 @@ $('#employeeSelect').on('change', function () {
                 alert(response.message);
                  let newRow = `<tr>
                     <td>${formData.user_id}</td>
-                    <td>${formData.s_no}</td>
                     <td>${formData.party}</td>
                     <td>${formData.mobile}</td>
-                    <td>${formData.date}</td>
+                    <td>${formData.ssdate}</td>
                     <td>${formData.software}</td>
                     <td>${formData.remark}</td>
                     <td>${formData.amt}</td>
                     <td><button class="btn btn-danger btn-remove">-</button></td>
                 </tr>`;
-                  $('#sales_table tbody').append(newRow);
+                  $('#stable tbody').append(newRow);
                 // Clear input fields
                 $('#s_no, #userid, #party, #mobile, #date, #software, #remark, #amt').val('');
             },
@@ -238,46 +532,106 @@ $('#employeeSelect').on('change', function () {
 </script>
 
 
+<script>
+//====================================
+//show data of amc sale
+//====================================
+$('#employeeSelect').on('change', function () {
+    let empId = $(this).val();
+
+    $.get(`/salaryslip/employee/${empId}/amcs`, function (amc) {
+        let tbody = $('#amctable tbody');
+        tbody.empty(); // Clear existing rows
+let r=1;
+        amc.forEach(function (amcs) {
+            let row = `<tr>
+              <td>${r++}</td>
+                <td>${amcs.user_id}</td>
+                <td>${amcs.partyname}</td>
+                <td>${amcs.mobileno}</td>
+                <td>${amcs.amc_date}</td>
+                <td>${amcs.softwarename}</td>
+                <td>${amcs.software_remark}</td>
+                <td>${amcs.software_account}</td>
+                <td><button class="btn btn-danger btn-remove">-</button></td>
+            </tr>`;
+            tbody.append(row);
+        });
+    });
+});
+
+
+</script>
+
 
 <script>
-// =============================
-// SEND FORM DATA TO CONTROLLER
-// =============================
-$('#saveBtn').on('click', function (e) {
-    e.preventDefault(); // stop form reload
+  // ==============================
+  // send or store data in amc sale
+  // ==============================
+    $('#amcadd').on('click', function (e) {
+        e.preventDefault();
+        let formData = {
+            _token: $('meta[name="csrf-token"]').attr('content'),
+            s_no: $('#a_no').val(),
+            user_id: $('#amcid').val(),
+            party: $('#aparty').val(),
+            mobile: $('#amobile').val(),
+            amcdate: $('#amcdate').val(),
+            software: $('#softwareamc').val(),
+            remark: $('#remarkforamc').val(),
+            amt: $('#amtamc').val()
+        };
+        $.ajax({
+            url: " {{url('amc_store') }} ",
+            type: "POST",
+            data: formData,
+            success: function (response) 
+            {
+                console.log("✅ Response received from controller:", response)
+                alert(response.message);
+                let newrow=`<tr>
+                  // <td>${formData.user_id}</td>
+                  
+                    <td>${formData.party}</td>
+                    <td>${formData.mobile}</td>
+                    <td>${formData.amcdate}</td>
+                    <td>${formData.software}</td>
+                    <td>${formData.remark}</td>
+                    <td>${formData.amt}</td>
+                    <td><button class="btn btn-danger btn-remove">-</button></td>
+                </tr>`;
+                $('#amctable tbody').append(newrow);
 
-    let formData = {
-        _token: $('meta[name="csrf-token"]').attr('content'),
-        employee_id: $('#employeeSelect').val(),
-        user_id: $('#user_id').val(),
-        name: $('#name').val(),
-        designation: $('#designation').val(),
-        salary_month: $('#salary_month').val(),
-        date: $('#date').val(),
-        basic_salary: $('#basic_salary').val(),
-        petrol_allowance: $('#petrol_allowance').val(),
-        sales_bonus: $('#sales_bonus').val(),
-        amc_bonus: $('#amc_bonus').val(),
-        bonus: $('#bonus').val(),
-        amt_leaves_fullday: $('#amt_leaves_fullday').val(),
-        amt_leaves_halfday: $('#amt_leaves_halfday').val(),
-        leaves: $('#leaves').val(),
-        half_leaves: $('#half_leaves').val(),
-        leave_dates: $('#leave_dates').val(),
-        remark: $('#remark').val()
-    };
+   },
+   error:function(xhr){
+    console.error("kuch gadbad hai :",xhr.responseText)
+    alert("something went wrong");
+   
+   }
+   
+  });
+});
+</script>
+
+
+<script>
+//==========================
+// delete data of sales and amc
+//===========================
+$(document).on('click', '.deletebtn', function () {
+    let userId = $(this).data('id');
+
+    if (!confirm("Delete ALL AMC + Sale data for this user?")) return;
 
     $.ajax({
-        url: "{{ url('salaryslip_update') }}",
-        type: "POST",
-        data: formData,
-        success: function (response) {
-            console.log("✅ Response received from controller:", response);
-            alert(response.message);
+        url: `/salaryslip/${userId}`,
+        type: "DELETE",
+        data: {
+            _token: $('meta[name="csrf-token"]').attr('content')
         },
-        error: function (xhr) {
-            console.error("❌ Error sending data:", xhr.responseText);
-            alert("Something went wrong!");
+        success: function (res) {
+            alert("All AMC + Sale data deleted");
+            location.reload();
         }
     });
 });

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('productsale', function (Blueprint $table) {
+        Schema::create('productsales', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
          $table->foreign('user_id')
                   ->references('id')->on('users')
                   ->onDelete('cascade');
-            $table->integer('sno')->unique();
+            $table->string('sno')->nullable();
             $table->string('partyname');
             $table->string('mobileno', 15)->nullable();
             $table->string('saledate')->nullable();
