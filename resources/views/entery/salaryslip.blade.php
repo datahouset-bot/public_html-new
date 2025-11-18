@@ -11,7 +11,7 @@
 <style>
   body { font-family: Arial, sans-serif; background: #f5f5f5; }
   .container { max-width:80%; margin-top: 18px; background: #ffffff; padding: 20px; border: 1px solid #333; }
-  h2, h3 { text-align: center; margin: 6px 0; background: gray; padding: 12px; color: #fff;  }
+  h2, h3 { text-align: center; margin: 6px 0; background: gray; padding: 12px; color: black;  }
   table { width: 100%; border-collapse: collapse; margin-top: 10px; }
   th, td { border: 2px solid #333; padding: 6px; font-size: 14px; }
   th { background: #333; color: #fff; }
@@ -62,7 +62,7 @@ textarea::placeholder { font-size: 18px; color: black; }
     #salaryform select {
         display: none !important;
     }
-    
+
     label {
         font-size: 14px !important;
         margin:  0 !important;
@@ -134,17 +134,30 @@ textarea::placeholder { font-size: 18px; color: black; }
     #stable th:nth-child(8) { width: 10% !important; }  /* Amount */
 
 
-    #stable th:last-child,
-    #stable td:last-child {
-        display: none !important;
-        visibility: hidden !important;
+  #stable tfoot tr,
+    #stable tfoot th,
+    #stable tfoot td,
+    #amctable tfoot tr,
+    #amctable tfoot th,
+    #amctable tfoot td {
+        display: table-row !important;
+        visibility: visible !important;
+        font-weight: bold !important;
+        font-size: 14px !important;
     }
 
-    /* AMC TABLE - Hide Action Column */
-    #amctable th:last-child,
-    #amctable td:last-child {
+    /* Ensure table is not collapsed incorrectly */
+    #stable tfoot,
+    #amctable tfoot {
+        display: table-footer-group !important;
+    }
+
+    /* Hide delete buttons only */
+    #stable td:last-child,
+    #stable th:last-child,
+    #amctable td:last-child,
+    #amctable th:last-child {
         display: none !important;
-        visibility: hidden !important;
     }
 
     /* ===== AMC TABLE COLUMN SHRINK ===== */
@@ -186,13 +199,11 @@ textarea::placeholder { font-size: 18px; color: black; }
   <h2>DATA HOUSE COMPANY
     <h3>Monthly Salary Slip</h3>
   </h2>
-  
+  <h3>Employee salary summary</h3>
 <form id="salaryform">
   @csrf
   {{-- <button type="button" id="insertEmployee" class="btn btn-info float-end"> --}}
   
-
-  <div class="section-title">Employee Details</div>
 
   <select id="employeeSelect" class="form-select">
       <option style="font-size: 22px" value="">-- Select Employee --</option>
@@ -304,10 +315,18 @@ textarea::placeholder { font-size: 18px; color: black; }
         <th>Software Name</th>
         <th>Software Remark</th>
         <th>Software Amount</th>
-        <th>Action</th>
+        <th>DELETE</th>
       </tr>
     </thead>
+
     <tbody></tbody>
+    <tfoot>
+    <tr>
+        <th colspan="7" class="text-end">TOTAL :</th>
+        <th id="sale_total">0</th>
+    </tr>
+</tfoot>
+
   </table>
 
 {{-- amc data showw--}}
@@ -322,15 +341,58 @@ textarea::placeholder { font-size: 18px; color: black; }
         <th>Software Name</th>
         <th>Software Remark</th>
         <th>Software Amount</th>
-        <th>Action</th>
+        <th>Delete</th>
+        
       </tr>
     </thead>
     <tbody></tbody>
+    <tfoot>
+    <tr>
+        <th colspan="7" class="text-end">TOTAL :</th>
+        <th id="amc_total">0</th>
+    </tr>
+</tfoot>
+
   </table>
 
 </div>
 {{-- 
 use to show data while print a salaryslip --}}
+<script>
+ function calculateSaleTotal() {
+    let total = 0;
+
+    $("#stable tbody tr").each(function () {
+        let value = $(this).find("td:nth-child(8)").text().trim();
+        let amt = parseFloat(value);
+
+        if (!isNaN(amt)) {
+            total += amt;
+        }
+    });
+
+    $("#sale_total").text(total);
+}
+</script>
+<script>
+function calculateAmcTotal() {
+    let total = 0;
+
+    $("#amctable tbody tr").each(function () {
+        let value = $(this).find("td:nth-child(8)").text().trim();
+        let amt = parseFloat(value);
+
+        if (!isNaN(amt)) {
+            total += amt;
+        }
+    });
+
+    $("#amc_total").text(total);
+}
+
+</script>
+
+
 <script>
 function preparePrintValues() {
 
@@ -358,12 +420,13 @@ function preparePrintValues() {
         label.appendChild(span);
     });
 }
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".print-btn").addEventListener("click", function () {
-        preparePrintValues();
-        window.print();
-    });
+document.querySelector(".print-btn").addEventListener("click", function () {
+    preparePrintValues();
+    calculateSaleTotal();
+    calculateAmcTotal();
+    window.print();
 });
+
 </script>
 
 {{-- 
@@ -474,10 +537,11 @@ let r=1;
                 <td>${sale.softwarename}</td>
                 <td>${sale.software_remark}</td>
                 <td>${sale.software_account}</td>
-                <td><button class="btn btn-danger btn-remove">-</button></td>
+                <td><button class="btn btn-danger delete-sale">-</button></td>             
             </tr>`;
             tbody.append(row);
         });
+        calculateSaleTotal(); 
     });
 });
 </script>
@@ -509,6 +573,7 @@ let r=1;
                 console.log("✅ Response received from controller:", response)
                 alert(response.message);
                  let newRow = `<tr>
+                    <td>${formData.s_no}</td>
                     <td>${formData.user_id}</td>
                     <td>${formData.party}</td>
                     <td>${formData.mobile}</td>
@@ -516,7 +581,7 @@ let r=1;
                     <td>${formData.software}</td>
                     <td>${formData.remark}</td>
                     <td>${formData.amt}</td>
-                    <td><button class="btn btn-danger btn-remove">-</button></td>
+                     <td><button class="btn btn-danger ">-</button></td>
                 </tr>`;
                   $('#stable tbody').append(newRow);
                 // Clear input fields
@@ -529,6 +594,32 @@ let r=1;
 
         });
     });
+</script>
+
+<script>
+  //======================
+  // delete sale data
+  //======================
+$(document).on("click", ".delete-sale", function () {
+    let id = $(this).closest("tr").data("id");
+
+    if (!confirm("Delete this sale?")) return;
+
+    $.ajax({
+        url: `"/software_delete/" +${id}`,
+        type: "DELETE",
+        data: {
+            _token: $('meta[name="csrf-token"]').attr("content")
+        },
+        success: function (res) {
+            alert("Sale deleted");
+            calculateSaleTotal();
+            location.reload();
+        }
+    });
+});
+
+
 </script>
 
 
@@ -553,10 +644,11 @@ let r=1;
                 <td>${amcs.softwarename}</td>
                 <td>${amcs.software_remark}</td>
                 <td>${amcs.software_account}</td>
-                <td><button class="btn btn-danger btn-remove">-</button></td>
+                  <td><button class="btn btn-danger delete-amc">-</button></td>
             </tr>`;
             tbody.append(row);
         });
+       calculateAmcTotal();
     });
 });
 
@@ -590,15 +682,17 @@ let r=1;
                 console.log("✅ Response received from controller:", response)
                 alert(response.message);
                 let newrow=`<tr>
-                  // <td>${formData.user_id}</td>
-                  
+                  <td>${formData.s_no}</td>
+                  <td>${formData.user_id}</td>
                     <td>${formData.party}</td>
                     <td>${formData.mobile}</td>
                     <td>${formData.amcdate}</td>
                     <td>${formData.software}</td>
                     <td>${formData.remark}</td>
                     <td>${formData.amt}</td>
-                    <td><button class="btn btn-danger btn-remove">-</button></td>
+                      <td><button class="btn btn-danger ">-</button></td>
+                    
+                
                 </tr>`;
                 $('#amctable tbody').append(newrow);
 
@@ -613,6 +707,33 @@ let r=1;
 });
 </script>
 
+
+<script>
+  //=========================
+  //DELETE AMC SALE
+  //========================
+
+$(document).on("click", ".delete-amc", function () {
+    let id = $(this).closest("tr").data("id");
+
+    if (!confirm("Delete this AMC?")) return;
+
+    $.ajax({
+        url: `"/amc_delete/" +${id}`,
+        type: "DELETE",
+        data: {
+            _token: $('meta[name="csrf-token"]').attr("content")
+        },
+        success: function (res) {
+            alert("AMC deleted");
+            calculateAmcTotal();
+            location.reload();
+        }
+    });
+});
+
+
+</script>
 
 <script>
 //==========================

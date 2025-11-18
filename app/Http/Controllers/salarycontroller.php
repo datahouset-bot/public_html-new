@@ -105,6 +105,7 @@ public function index()
         return response()->json(['message' => 'Software sale recorded successfully!','data' => $productsale], 200);
 
     }
+
 // store amc data
 public function amcstore(Request $request)
 {
@@ -149,6 +150,16 @@ return response()->json(['message'=>'Amc save successfully!','data'=>$data],200)
     {
         //
     }
+// update software details
+public function updateSale(Request $request, $id)
+{
+    // Find the sale record
+  
+
+  
+  
+}
+
 public function update(Request $request)
 {
     $data = $request->all();
@@ -241,5 +252,21 @@ public function getEmployeeamcs ($id)
     $amc=Amcsale::where('user_id',$id)->get();
     return response()->json($amc);
 }
+
+public function deleteSale($id)
+{
+    dd($id);
+    productsale::where('user_id', $id)->delete();
+
+    return response()->json(['message' => 'Sale deleted successfully']);
+}
+
+public function deleteAmc($id)
+{
+    AmcSale::where('user_id', $id)->delete();
+
+    return response()->json(['message' => 'AMC sale deleted successfully']);
+}
+
 
 }
