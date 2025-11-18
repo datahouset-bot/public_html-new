@@ -528,7 +528,7 @@ $('#employeeSelect').on('change', function () {
         tbody.empty(); // Clear existing rows
 let r=1;
         sales.forEach(function (sale) {
-            let row = `<tr>
+            let row = `<tr data-id="${sale.id}">
               <td>${r++}</td>
                 <td>${sale.user_id}</td>
                 <td>${sale.partyname}</td>
@@ -584,6 +584,7 @@ let r=1;
                      <td><button class="btn btn-danger ">-</button></td>
                 </tr>`;
                   $('#stable tbody').append(newRow);
+                         calculateSaleTotal(); 
                 // Clear input fields
                 $('#s_no, #userid, #party, #mobile, #date, #software, #remark, #amt').val('');
             },
@@ -601,12 +602,13 @@ let r=1;
   // delete sale data
   //======================
 $(document).on("click", ".delete-sale", function () {
+  // e.preventDefault();
     let id = $(this).closest("tr").data("id");
 
     if (!confirm("Delete this sale?")) return;
 
     $.ajax({
-        url: `"/software_delete/" +${id}`,
+        url: `/software_delete/${id}`,
         type: "DELETE",
         data: {
             _token: $('meta[name="csrf-token"]').attr("content")
@@ -619,10 +621,7 @@ $(document).on("click", ".delete-sale", function () {
     });
 });
 
-
 </script>
-
-
 <script>
 //====================================
 //show data of amc sale
@@ -635,7 +634,7 @@ $('#employeeSelect').on('change', function () {
         tbody.empty(); // Clear existing rows
 let r=1;
         amc.forEach(function (amcs) {
-            let row = `<tr>
+            let row = `<tr data-id="${amcs.id}">
               <td>${r++}</td>
                 <td>${amcs.user_id}</td>
                 <td>${amcs.partyname}</td>
@@ -695,7 +694,9 @@ let r=1;
                 
                 </tr>`;
                 $('#amctable tbody').append(newrow);
-
+ calculateAmcTotal();
+     // Clear input fields
+                $('#a_no, #amcid, #aparty, #amobile, #amcdate, #softwareamc, #remarkforamc, #amtamc').val('');
    },
    error:function(xhr){
     console.error("kuch gadbad hai :",xhr.responseText)
@@ -714,12 +715,13 @@ let r=1;
   //========================
 
 $(document).on("click", ".delete-amc", function () {
+  // e.preventDefault();
     let id = $(this).closest("tr").data("id");
 
     if (!confirm("Delete this AMC?")) return;
 
     $.ajax({
-        url: `"/amc_delete/" +${id}`,
+        url: `/amc_delete/${id}`,
         type: "DELETE",
         data: {
             _token: $('meta[name="csrf-token"]').attr("content")
@@ -734,6 +736,9 @@ $(document).on("click", ".delete-amc", function () {
 
 
 </script>
+
+
+
 
 <script>
 //==========================

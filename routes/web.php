@@ -69,8 +69,9 @@ Route::resource('salaryslip', App\Http\Controllers\salarycontroller::class);
 Route::POST('salaryslip_update', [App\Http\Controllers\salarycontroller::class, 'update']);
 Route::get('salaryslip_delete/{id}',[App\Http\Controllers\salarycontroller::class, 'destroy']);
 Route::post('software_store', [App\Http\Controllers\salarycontroller::class, 'softwareStore']);
-Route::get('/software_delete/{id}', [App\Http\Controllers\salarycontroller::class, 'deleteSale']);
-Route::get('/amc_delete/{id}', [App\Http\Controllers\salarycontroller::class, 'deleteAmc']);
+Route::delete('/software_delete/{id}', [App\Http\Controllers\salarycontroller::class, 'deleteSale']);
+Route::delete('/amc_delete/{id}', [App\Http\Controllers\salarycontroller::class, 'deleteAmc']);
+
 Route::post('amc_store', [App\Http\Controllers\salarycontroller::class, 'amcStore']);
 Route::get('/salaryslip/getEmployees', function () {
     return App\Models\User::select('id', 'name', 'email')->get();

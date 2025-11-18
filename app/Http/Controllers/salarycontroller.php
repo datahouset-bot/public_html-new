@@ -255,18 +255,30 @@ public function getEmployeeamcs ($id)
 
 public function deleteSale($id)
 {
-    dd($id);
-    productsale::where('user_id', $id)->delete();
+    $sale = productsale::find($id);
+
+    if (!$sale) {
+        return response()->json(['error' => 'Sale not found'], 404);
+    }
+
+    $sale->delete();
 
     return response()->json(['message' => 'Sale deleted successfully']);
 }
 
 public function deleteAmc($id)
 {
-    AmcSale::where('user_id', $id)->delete();
+    $amc = AmcSale::find($id);
 
-    return response()->json(['message' => 'AMC sale deleted successfully']);
+    if (!$amc) {
+        return response()->json(['error' => 'AMC not found'], 404);
+    }
+
+    $amc->delete();
+
+    return response()->json(['message' => 'AMC deleted successfully']);
 }
+
 
 
 }
