@@ -65,37 +65,27 @@
         <div class="col-md-4 col-sm-6">
             <div class="video-container">
                 
-                <iframe src="https://youtube.com/embed/5-p9vF4yitc" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/W7dARhwRtLw"  frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="video-container">
-                <iframe src="https://youtube.com/embed/fsTeXSzD6O0" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Www9ccTWKeE" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
+        {{-- <div class="col-md-4 col-sm-6">
         <div class="col-md-4 col-sm-6">
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/5nEl-kRIqgI" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/k0sozN4CJ_A" frameborder="0" allowfullscreen></iframe>
             </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/4_koekwi1mw" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/4hM4SUszTuQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
+        </div> --}}
 
     <!-- Playlist -->
     <!-- Playlist -->
 <h2 class="section-title">📺 Full Playlist / पूरी प्लेलिस्ट</h2>
 <div class="video-container mb-4">
     <iframe 
-        src="https://www.youtube.com/embed/jnWBV5e0rjY" 
+        src="https://www.youtube.com/embed/Www9ccTWKeE"  
         frameborder="0" 
         allowfullscreen>
     </iframe>

@@ -67,26 +67,6 @@
                 <iframe src="https://www.youtube.com/embed/--0QCvMRTQg" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/fhwysYvJO1s" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/GiPQ6lm3e8g" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/--0QCvMRTQg" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/PzchgM1RSt4" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
     </div>
 
     <!-- Playlist -->
