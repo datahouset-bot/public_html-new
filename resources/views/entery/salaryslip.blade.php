@@ -136,10 +136,7 @@ textarea::placeholder { font-size: 18px; color: black; }
 
   #stable tfoot tr,
     #stable tfoot th,
-    #stable tfoot td,
-    #amctable tfoot tr,
-    #amctable tfoot th,
-    #amctable tfoot td {
+    #stable tfoot td ,{
         display: table-row !important;
         visibility: visible !important;
         font-weight: bold !important;
@@ -147,18 +144,15 @@ textarea::placeholder { font-size: 18px; color: black; }
     }
 
     /* Ensure table is not collapsed incorrectly */
-    #stable tfoot,
-    #amctable tfoot {
+    #stable tfoot {
         display: table-footer-group !important;
     }
 
     /* Hide delete buttons only */
-    #stable td:last-child,
-    #stable th:last-child,
-    #amctable td:last-child,
-    #amctable th:last-child {
-        display: none !important;
-    }
+   #stable td:nth-child(9),
+#stable th:nth-child(9) {
+    display: none !important;
+}
 
     /* ===== AMC TABLE COLUMN SHRINK ===== */
     #amctable th, 
@@ -172,21 +166,35 @@ textarea::placeholder { font-size: 18px; color: black; }
         table-layout: fixed !important;
     }
 
-    #amctable th:nth-child(1) { width: 5% !important; }
-    #amctable th:nth-child(2) { width: 5% !important; }
-    #amctable th:nth-child(3) { width: 10% !important; }
-    #amctable th:nth-child(4) { width: 15% !important; }
-    #amctable th:nth-child(5) { width: 15% !important; }
-    #amctable th:nth-child(6) { width: 12% !important; }
-    #amctable th:nth-child(7) { width: 12% !important; }
-    #amctable th:nth-child(8) { width: 10% !important; }
+  /* Fix AMC table column widths identical to SALE table */
+#amctable th:nth-child(1) { width: 5% !important; }
+#amctable th:nth-child(2) { width: 5% !important; }
+#amctable th:nth-child(3) { width: 10% !important; }
+#amctable th:nth-child(4) { width: 15% !important; }
+#amctable th:nth-child(5) { width: 15% !important; }
+#amctable th:nth-child(6) { width: 12% !important; }
+#amctable th:nth-child(7) { width: 12% !important; }
+#amctable th:nth-child(8) { width: 10% !important; }
 
     /* AMC TABLE - Hide Action Column */
-    #amctable th:last-child,
-    #amctable td:last-child {
-        display: none !important;
-        visibility: hidden !important;
-    }
+ #amctable td:nth-child(9),
+#amctable th:nth-child(9) {
+    display: none !important;
+}
+
+#amctable tfoot {
+    display: table-footer-group !important;
+}
+
+/* place the total data in line */
+#amctable tfoot tr,
+#amctable tfoot td,
+#amctable tfoot th ,{
+    display: table-row !important;
+    visibility: visible !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+}
 
 }
 </style>
@@ -238,7 +246,7 @@ textarea::placeholder { font-size: 18px; color: black; }
  
 
    
-   <form id="salesForm" method="POST" >
+   <form id="salesForm" method="POST" autocomplete="off" >
     @csrf     
   <table id="sales_table">
     <thead>
@@ -255,7 +263,7 @@ textarea::placeholder { font-size: 18px; color: black; }
       </tr>
     </thead>
     <tr class="sale-input-row no-print">
-     <td><input type="text" class="form-control" id="userid" readonly></td>
+     <td><input type="text" class="form-control" id="userid"></td>
     <input class="form-control" id="s_no" type="hidden" >
     <td><input class="form-control" id="party" placeholder="Party Name"></td>
     <td><input class="form-control" id="mobile" placeholder="Mobile No"></td>
@@ -300,8 +308,7 @@ textarea::placeholder { font-size: 18px; color: black; }
     <td><input class="form-control" id="amtamc" placeholder="Amt"></td>
      <td><button id="amcadd" class="btn btn-primary float-end btn-add" >+</button></td></tr>
     <tbody></tbody>
-  </table>
-  </form>
+  </table></form>
 
 {{-- software sale show --}}
     <table id="stable">
@@ -349,45 +356,39 @@ textarea::placeholder { font-size: 18px; color: black; }
     <tfoot>
     <tr>
         <th colspan="7" class="text-end">TOTAL :</th>
-        <th id="amc_total">0</th>
+        <th id="amctotal">0</th>
     </tr>
 </tfoot>
-
-  </table>
+</table>
 
 </div>
 {{-- 
 use to show data while print a salaryslip --}}
 <script>
- function calculateSaleTotal() {
+function calculateSaleTotal() {
     let total = 0;
 
     $("#stable tbody tr").each(function () {
-        let value = $(this).find("td:nth-child(8)").text().trim();
-        let amt = parseFloat(value);
-
-        if (!isNaN(amt)) {
-            total += amt;
-        }
+        let amt = parseFloat($(this).find("td").eq(7).text().trim());
+        if (!isNaN(amt)) total += amt;
     });
 
     $("#sale_total").text(total);
 }
+
 </script>
+
+
 <script>
 function calculateAmcTotal() {
     let total = 0;
 
-    $("#amctable tbody tr").each(function () {
-        let value = $(this).find("td:nth-child(8)").text().trim();
-        let amt = parseFloat(value);
-
-        if (!isNaN(amt)) {
-            total += amt;
-        }
+    $("#amctable tbody tr").each(function () { 
+        let amt = parseFloat($(this).find("td").eq(7).text().trim());
+        if (!isNaN(amt))  total += amt;
     });
 
-    $("#amc_total").text(total);
+    $("#amctotal").text(total);
 }
 
 </script>
@@ -422,10 +423,15 @@ function preparePrintValues() {
 }
 document.querySelector(".print-btn").addEventListener("click", function () {
     preparePrintValues();
-    calculateSaleTotal();
-    calculateAmcTotal();
-    window.print();
+
+    setTimeout(() => {
+        calculateSaleTotal();
+        calculateAmcTotal();
+        window.print();
+    }, 100);
 });
+
+
 
 </script>
 
@@ -586,7 +592,7 @@ let r=1;
                   $('#stable tbody').append(newRow);
                          calculateSaleTotal(); 
                 // Clear input fields
-                $('#s_no, #userid, #party, #mobile, #date, #software, #remark, #amt').val('');
+                $('#s_no, #party, #mobile, #date, #software, #remark, #amt').val('');
             },
             error: function (xhr) {
                 console.error("❌ Error sending data:", xhr.responseText);
@@ -696,7 +702,7 @@ let r=1;
                 $('#amctable tbody').append(newrow);
  calculateAmcTotal();
      // Clear input fields
-                $('#a_no, #amcid, #aparty, #amobile, #amcdate, #softwareamc, #remarkforamc, #amtamc').val('');
+                $('#a_no, #aparty, #amobile, #amcdate, #softwareamc, #remarkforamc, #amtamc').val('');
    },
    error:function(xhr){
     console.error("kuch gadbad hai :",xhr.responseText)

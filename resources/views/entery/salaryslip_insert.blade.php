@@ -43,7 +43,7 @@ textarea::placeholder { font-size: 15px; color:grey; }
      <label for="name">Employee Name</label> <input name="emp_name" id="emp_name" placeholder="Employee Name same as User">
       <label for="designation">Designation</label> <input name="designation" id="designation" placeholder="Designation">
       <label for="salary_month">Salary Month</label> <input name="salary_month" id="salary_month" type="month" placeholder="salary Month">
-      <label for="slip_date">Slip Date</label> <input name="slip_date" id="date" type="date" placeholder="Slip Date">
+      {{-- <label for="slip_date">Slip Date</label> <input name="slip_date" id="date" type="date" placeholder="Slip Date"> --}}
       <br>
       <label for="basic_salary">Basic Salary</label> <input name="basic_salary" id="basic_salary" type="number" placeholder="Basic Salary">
       <label for="petrol_allowance">Petrol Allowance</label> <input name="petrol_allowance" id="petrol_allowance" type="number" placeholder="Petrol Allowance">
