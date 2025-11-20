@@ -1,7 +1,8 @@
 <?php
+use App\Models\productdetail;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PicController;
 
+use App\Http\Controllers\PicController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TodoController;
@@ -62,17 +63,24 @@ Route::post('/modify', [App\Http\Controllers\userprofileController::class, 'modi
  Route::Post('itemgroups',[App\Http\Controllers\ItemgroupController::class,'store']);
  Route::get('deleteitemgroups/{id}',[App\Http\Controllers\ItemgroupController::class,'destroy']);
  Route::get('howediteditemgroups/{id}',[App\Http\Controllers\ItemgroupController::class,'show']);
+// ====================================================================================================
+//-----------PRODUCT DETAILS ---------------------------------------------------
+Route::resource('productdetail', App\Http\Controllers\productdetailcontroller::class);
+
+
+
 
  // salary Route---salaryslip-----------------------------------------------
 
 Route::resource('salaryslip', App\Http\Controllers\salarycontroller::class);
 Route::POST('salaryslip_update', [App\Http\Controllers\salarycontroller::class, 'update']);
-Route::get('salaryslip_delete/{id}',[App\Http\Controllers\salarycontroller::class, 'destroy']);
 Route::post('software_store', [App\Http\Controllers\salarycontroller::class, 'softwareStore']);
 Route::delete('/software_delete/{id}', [App\Http\Controllers\salarycontroller::class, 'deleteSale']);
 Route::delete('/amc_delete/{id}', [App\Http\Controllers\salarycontroller::class, 'deleteAmc']);
 
 Route::post('amc_store', [App\Http\Controllers\salarycontroller::class, 'amcStore']);
+
+
 Route::get('/salaryslip/getEmployees', function () {
     return App\Models\User::select('id', 'name', 'email')->get();
 })->name('salaryslip.getEmployees');

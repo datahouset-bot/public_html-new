@@ -238,8 +238,7 @@ textarea::placeholder { font-size: 18px; color: black; }
 <div class="text-center mt-3">
 <button class="btn btn-success float-start print-btn" type="button">Print Salary Slip</button>
 <button type="submit" id="saveBtn" class="btn btn-primary col-md-2 save-btn">Save Employ Info</button>
-<td><button class="btn btn-danger btn-remove float-end deletebtn" data-id="{{$emp->user_id}}">DELETE</button></td>
-
+<td><button class="btn btn-danger deletebtn float-end" id="deleteAllBtn">DELETE</button></td>
 </div>
 {{-- <div class="section-title">Software New Sales</div> --}}
 
@@ -750,20 +749,26 @@ $(document).on("click", ".delete-amc", function () {
 //==========================
 // delete data of sales and amc
 //===========================
-$(document).on('click', '.deletebtn', function () {
-    let userId = $(this).data('id');
+$(document).on('click', '.deletebtn', function (e) {
+    e.preventDefault();
 
-    if (!confirm("Delete ALL AMC + Sale data for this user?")) return;
+    let id = $('#user_id').val();   // <-- CORRECT USER ID
+
+    if (!confirm("Delete ALL Sale + AMC for this user?")) return;
 
     $.ajax({
-        url: `/salaryslip/${userId}`,
-        type: "DELETE",
+        url: `/salaryslip/${id}`,
+        type: "POST",
         data: {
-            _token: $('meta[name="csrf-token"]').attr('content')
+            _token: $('meta[name="csrf-token"]').attr('content'),
+            _method: "DELETE"
         },
         success: function (res) {
-            alert("All AMC + Sale data deleted");
+            alert(res.message);
             location.reload();
+        },
+        error: function (xhr) {
+            console.log(xhr.responseText);
         }
     });
 });

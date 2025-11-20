@@ -197,7 +197,6 @@ public function update(Request $request)
     ]);
 }
 
-
 public function destroy(string $id)
 {
     // Delete AMC records
@@ -205,6 +204,7 @@ public function destroy(string $id)
 
     // Delete Software Sales records
     $saleDeleted = productsale::where('user_id', $id)->delete();
+
 
     if ($amcDeleted || $saleDeleted) {
         return response()->json([

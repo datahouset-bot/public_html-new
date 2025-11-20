@@ -85,7 +85,7 @@
                             </div>
                               <a class="nav-link" href="{{url('/salaryslip')}}">salary</a>
                                     <a class="nav-link" href="{{url('salaryslip/create')}}">Add Employee</a>
-
+<a class="nav-link" href="{{url('/productdetail')}}">productdetails</a>
                         </nav>
                     </div>
                   {{-- entery section end  --}}
