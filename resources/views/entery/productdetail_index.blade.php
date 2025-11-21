@@ -58,7 +58,7 @@
                         <td>{{ $p->arc }}</td>
                         <td class="no-export">
                             <a href="{{ route('productdetail.edit', $p->id) }}" class="btn btn-sm btn-warning">
-                                Edit
+                                Edit btn
                             </a>
                         </td>
                         <td class="no-export">
